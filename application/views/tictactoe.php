@@ -162,19 +162,19 @@
 
                     E: {
 
-                        nAverage: 40,
+                        nAverage: 20,
                         sLabel: "Fácil"
 
                     },
                     M: {
 
-                        nAverage: 70,
+                        nAverage: 50,
                         sLabel: "Médio"
 
                     },
                     H: {
 
-                        nAverage: 99,
+                        nAverage: 95,
                         sLabel: "Difícil"
 
                     }
