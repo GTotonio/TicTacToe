@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+    environment:
+      - APACHE_RUN_USER=www-data
+      - APACHE_RUN_GROUP=www-data
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: tictactoe
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: tictac
+      MYSQL_PASSWORD: tictac
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./tictactoe.sql:/docker-entrypoint-initdb.d/tictactoe.sql:ro
+volumes:
+  db_data:
